@@ -1,7 +1,7 @@
 {
-    "name": "porticos",
+    "name": "QR Scanner by M.K.",
     "version": "1.1.1",
-    "description": "porticos: An Ionic project",
+    "description": "QR Scanner by M.K.: An Ionic project",
     "dependencies": {
         "cordova-android": "^6.2.2",
         "cordova-plugin-compat": "^1.0.0",
