@@ -9,6 +9,12 @@ var MKscanner = angular.module('starter', ['ionic', 'ngCordova'])
 })
 
 MKscanner.controller('scanBarCtrl', function($scope, $cordovaBarcodeScanner) {
+  
+$scope.input ={
+  MyText : ''
+};
+
+
   $scope.scanBarcode = function() {
     $cordovaBarcodeScanner.scan(
       {
@@ -26,11 +32,10 @@ MKscanner.controller('scanBarCtrl', function($scope, $cordovaBarcodeScanner) {
 $scope.encodeBarcode = function()
 {
 
-  cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, 
 
-"www.polytechnic.ck.ua"
+ console.log($scope.input.MyText);
 
-    , function(success) {
+  cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, $scope.input.MyText, function(success) {
             alert("encode success: " + success);
           }, function(fail) {
             alert("encoding failed: " + fail);
