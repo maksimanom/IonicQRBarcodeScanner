@@ -1,0 +1,12 @@
+{
+  "name": "QR Code Scanner",
+  "short_name": "QR Code Scanner",
+  "start_url": "index.html",
+  "display": "standalone",
+ "orientation": "portrait",
+  "icons": [{
+    "src": "icon.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }]
+}
