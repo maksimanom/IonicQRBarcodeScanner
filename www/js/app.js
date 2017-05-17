@@ -44,9 +44,6 @@ $scope.encodeBarcode = function()
 
 }
 
-
-
-
 });
 
 
