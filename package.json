@@ -5,6 +5,8 @@
     "dependencies": {
         "cordova-android": "^6.2.2",
         "cordova-plugin-compat": "^1.0.0",
+        "cordova-plugin-x-socialsharing": "^5.1.8",
+        "es6-promise-plugin": "^4.1.0",
         "gulp": "^3.5.6",
         "gulp-concat": "^2.2.0",
         "gulp-minify-css": "^0.3.0",
@@ -40,7 +42,8 @@
         "plugins": {
             "phonegap-plugin-barcodescanner": {
                 "CAMERA_USAGE_DESCRIPTION": "Escáner de Pórticos"
-            }
+            },
+            "cordova-plugin-x-socialsharing": {}
         }
     }
 }

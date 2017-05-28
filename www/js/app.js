@@ -1,5 +1,6 @@
 var MKscanner = angular.module('starter', ['ionic', 'ngCordova'])
 
+
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     if(window.StatusBar) {
@@ -47,3 +48,11 @@ $scope.encodeBarcode = function()
 });
 
 
+MKscanner.controller('SharingContr', function($scope, $cordovaSocialSharing) {
+
+$scope.ShareAnywhere = function(){
+
+  $cordovaSocialSharing.share("Hello! I just scanned this by 'QR and Barcode Scanner by M.K.':", "Scanned by QR and Barcode Scanner by M.K.", null, "Here is text of barcode")
+}
+
+});

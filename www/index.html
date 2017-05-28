@@ -39,6 +39,7 @@
       <ion-header-bar class="bar-stable">
         <h1 class="title">QR & BarCode Scanner by M.K.</h1>
       </ion-header-bar>
+
       <ion-content ng-controller='scanBarCtrl'>
       <div class="lol">
                          <button class="but" ng-click='scanBarcode()'>Scan</button>    
@@ -48,7 +49,14 @@
 </label> <br>
                          <button class="but" ng-click='encodeBarcode()'>Create</button>        
                          </div>
+    <button ng-controller="SharingContr" class="button" ng-click="ShareAnywhere()">Share Anywhere</button>
+
       </ion-content>
-    </ion-pane>
+
+
+
+
+
+
   </body>
 </html>
