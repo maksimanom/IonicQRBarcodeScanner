@@ -18,13 +18,14 @@
 
     <link href="lib/ionic/css/ionic.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
-
+<link href="css/ionic.app.css" rel="stylesheet">
     <!-- IF using Sass (run gulp sass first), then uncomment below and remove the CSS includes above
     <link href="css/ionic.app.css" rel="stylesheet">
     -->
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
+     <script src="lib/ngstorage/ngStorage.min.js"></script>
 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="js/ng-cordova.min.js"></script>
@@ -36,24 +37,54 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
-        <h1 class="title">QR & BarCode Scanner by M.K.</h1>
-      </ion-header-bar>
+      
+<ion-header-bar class="bar-calm" ng-controller='scanBarCtrl'>
+           <h1 class="title" ng-click='encodeBarcodee()'>QR & Barcode Scanner by M.K.</h1>
+</ion-header-bar>
 
-      <ion-content ng-controller='scanBarCtrl'>
+      <ion-content >
       <div class="lol">
-                         <button class="but" ng-click='scanBarcode()'>Scan</button>    
-                         <br><br><br><br><br>
+<div ng-controller='scanBarCtrl'>
+                         <button class="but" ng-click='scanBarcode()'>
+                          <img src="1.jpg" width="100%" /></button>    
+                         <br><br><br>
 <label class="item item-input">
 <input type="text" placeholder="Enter your text here to encode it (make QR)" ng-model="input.MyText">
-</label> <br>
-                         <button class="but" ng-click='encodeBarcode()'>Create</button>        
+</label>
+                         <button class="but" ng-click='encodeBarcode()'>
+                         <img src="2.jpg" width="100%" /></button>        
                          </div>
-    <button ng-controller="SharingContr" class="button" ng-click="ShareAnywhere()">Share Anywhere</button>
+    
 
+<br><br>
+
+
+<div ng-controller="MainCtrl">
+            <div class="list">
+                <div class="item item-input-inset">
+                    <label class="item-input-wrapper">
+                        <input type="text" placeholder="Save your own text" ng-model="newThing">
+                    </label>
+                    <button class="button button-clear button-positive icon" ng-click="add(newThing)">
+                        <i class="ion-ios-plus-outline"></i> Add
+                    </button>
+                </div>
+            </div>
+
+            <ion-list show-delete="false" can-swipe="true">
+                <ion-item ng-repeat="thing in things">
+                    {{thing}}
+                    <ion-option-button class="button-assertive ion-trash-b" ng-click="remove(thing)"></ion-option-button>
+                </ion-item>
+            </ion-list>
+            </div>
+
+
+</div>
       </ion-content>
 
 
+</ion-pane>
 
 
 

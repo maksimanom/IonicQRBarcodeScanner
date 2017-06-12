@@ -1,8 +1,11 @@
 .but {
 
-	width: 40%;
+	width: 50%;
 
 	text-align: center;
+ color:black;
+ background-color: #fff;
+ border: none;
 	
 	font-size: 200%;
 }
@@ -11,9 +14,8 @@
 {
 
 	position: relative;
+	top:+10%;
 
-
-	top:30%;
 	text-align: center;
 }
 

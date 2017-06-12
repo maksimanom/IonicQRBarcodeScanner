@@ -1,4 +1,4 @@
-var MKscanner = angular.module('starter', ['ionic', 'ngCordova'])
+var MKscanner = angular.module('starter', ['ionic', 'ngCordova', 'ngStorage'])
 
 
 .run(function($ionicPlatform) {
@@ -22,8 +22,9 @@ $scope.input ={
         preferFrontCamera : false,
         orientation : 'portrait'
       }).then(function (result) {
-        alert(result.text);
-      },
+        alert('Scanned text  "' + result.text + '"  copied to clipboard');
+        new Clipboard(result.text);
+              },
       function (error) {
         alert('Scanning failed: ' + error);
       });
@@ -45,6 +46,22 @@ $scope.encodeBarcode = function()
 
 }
 
+
+$scope.encodeBarcodee = function()
+{
+
+
+ console.log();
+
+  cordova.plugins.barcodeScanner.encode(cordova.plugins.barcodeScanner.Encode.TEXT_TYPE, "Graduate work by Maksym Kozoriz for Cherkasy Polytechnic College (с) 2017", function(success) {
+            alert("encode success: " + success);
+          }, function(fail) {
+            alert("encoding failed: " + fail);
+          }
+        );
+
+}
+
 });
 
 
@@ -56,3 +73,44 @@ $scope.ShareAnywhere = function(){
 }
 
 });
+
+
+
+MKscanner.factory ('StorageService', function ($localStorage) {
+
+  $localStorage = $localStorage.$default({
+    things: []
+  });
+
+  var _getAll = function () {
+    return $localStorage.things;
+  };
+
+  var _add = function (thing) {
+    $localStorage.things.push(thing);
+  }
+
+  var _remove = function (thing) {
+    $localStorage.things.splice($localStorage.things.indexOf(thing), 1);
+  }
+
+  return {
+    getAll: _getAll,
+    add: _add,
+    remove: _remove
+  };
+});
+
+
+MKscanner.controller( 'MainCtrl', function ($scope, StorageService) {
+  $scope.things = StorageService.getAll();
+
+  $scope.add = function (newThing) {
+    StorageService.add(newThing);
+      };
+
+  $scope.remove = function (thing) {
+    StorageService.remove(thing);
+  };
+});
+

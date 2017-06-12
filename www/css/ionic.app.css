@@ -3945,9 +3945,15 @@ a.subdued {
       background-image: linear-gradient(180deg, #0c60ee, #0c60ee 50%, transparent 50%); }
   .bar.bar-calm {
     border-color: #0a9dc7;
-    background-color: #11c1f3;
+    background-color: #3a7ff5;
     background-image: linear-gradient(0deg, #0a9dc7, #0a9dc7 50%, transparent 50%);
-    color: #fff; }
+    color: #fff;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    align-self: center;
+    text-align-last: center;
+    }
     .bar.bar-calm .title {
       color: #fff; }
     .bar.bar-calm.bar-footer {
